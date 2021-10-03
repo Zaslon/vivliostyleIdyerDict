@@ -129,15 +129,6 @@ span.wordRelation {
 	margin:0 0.1em;
 }
 
-span.wordId {
-	margin: 0 1em 0 0.2em ;
-	border: none !important;
-	color: #ccc;
-	font-size: 50%;
-	max-height:100%;
-	font-weight: normal;
-}
-
 li.wordForm {
 	max-height:100%;
 	font-weight: bold;
