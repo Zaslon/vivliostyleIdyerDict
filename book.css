@@ -148,9 +148,11 @@ ul.wordEntry {
 span.wordTitle,
 span.wordContentTitle,
 span.wordRelation {
-	border: #ccc 1px solid;
+	display: inline-block;
+	border: #999 1px solid;
 	border-radius: 2px;
-	padding: 0 0.2em 0 0.2em;
+	height:1.8em;
+	box-sizing:border-box;
 	margin:0 0.1em;
 }
 
