@@ -22,24 +22,19 @@ $i = 0; //テスト用
 	foreach($json["words"] as $entryId => $singleEntry ) {
 	//ここに検索結果の繰り返し表示を入れる。
 		echo '<ul class="wordEntry">';
-		echo '<li class="wordForm">';
-		echo '</li>';
+		echo '<li class="wordForm">', $singleEntry["entry"]["form"], '</li>';
 		
 		$previousTitle = '';
-		echo '<li>';
 		foreach ($singleEntry["translations"] as $index => $singleTranslation){
 			if ($index === 0){
 				echo '<span class="wordTitle">' , $singleTranslation["title"] , '</span>';
-				echo '<ol>';
 			}else{
 				if ($previousTitle !== $singleTranslation["title"]) {
-					echo '</ol>';
 					echo '<span class="wordTitle">' , $singleTranslation["title"] , '</span>';
-					echo '<ol>';
 				}
 			}
 			$previousTitle = $singleTranslation["title"];
-			echo '<li>';
+			echo '<li class="wordTrans">';
 			foreach ($singleTranslation["forms"] as $singleTranslationForm){
 				echo $singleTranslationForm;
 				if ($singleTranslationForm !== end($singleTranslation["forms"])){
@@ -47,9 +42,7 @@ $i = 0; //テスト用
 					echo '、';
 				}
 			}
-			echo '</li>';
 		}
-		echo '</ol>';
 		
 		foreach ($singleEntry["contents"] as $singleContent){
 			echo '<li class="wordContents">';

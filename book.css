@@ -9,6 +9,10 @@ Author URI: https://zaslon.info
 
 /* 全体の設定 */
 
+@page{
+	margin:5%;
+}
+
 @font-face {
 	font-family: 'Fazik';
 	src:
@@ -16,6 +20,11 @@ Author URI: https://zaslon.info
 	url('Fazik-regular.ttf') format('truetype');
 	}
 	
+
+ul,
+li{
+	display: inline;
+}
 
 a {
 	color: black;
@@ -122,13 +131,9 @@ h6 {
 	padding-top : 10px;
 	clear:both;
 	}
-
-input{
-	font-family:inherit;
-	margin-right:0.2em;
-	}
 	
 ul.wordEntry {
+	display: block;
 	padding: 0;
 	margin: 0;
 	margin-top: 5px;
@@ -136,8 +141,8 @@ ul.wordEntry {
 	max-height:100%;
 }
 
-ul.wordEntry li {
-	margin-bottom: 0.2em;
+.wordTrans{
+	
 }
 
 span.wordTitle,
@@ -146,7 +151,7 @@ span.wordRelation {
 	border: #ccc 1px solid;
 	border-radius: 2px;
 	padding: 0 0.2em 0 0.2em;
-	margin-right:1em;
+	margin:0 0.1em;
 }
 
 span.wordId {
