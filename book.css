@@ -11,6 +11,14 @@ Author URI: https://zaslon.info
 
 @page{
 	margin:5%;
+	
+	@top-left {
+	content: string(wordForm, start);
+	}
+	
+	@top-right {
+	content: string(wordForm, last);
+	}
 }
 
 @font-face {
@@ -130,6 +138,7 @@ span.wordRelation {
 }
 
 li.wordForm {
+	string-set:wordForm content();
 	max-height:100%;
 	font-weight: bold;
 }
