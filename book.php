@@ -1,0 +1,77 @@
+<?php
+	require 'func.php';
+	
+	//json読み込み
+	$fname = 'idyer.json';
+	$json = file_get_contents($fname);
+	$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+	$json = json_decode($json,true);
+?>
+
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" >
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+<link rel="stylesheet" type="text/css" href="book.css" >
+<title>緯日辞典 本文</title>
+</head>
+<body>
+<?php
+	//ここから表示部
+	foreach($json["words"] as $entryId => $singleEntry ) {
+	//ここに検索結果の繰り返し表示を入れる。
+		echo '<ul class="wordEntry">';
+		echo '<li class="wordForm"><span title="' , $singleEntry["entry"]["form"], '">' , $singleEntry["entry"]["form"], '</span>';
+		echo '</li>';
+		
+		$previousTitle = '';
+		echo '<li>';
+		foreach ($singleEntry["translations"] as $index => $singleTranslation){
+			if ($index === 0){
+				echo '<span class="wordTitle">' , $singleTranslation["title"] , '</span>';
+				echo '<ol>';
+			}else{
+				if ($previousTitle !== $singleTranslation["title"]) {
+					echo '</ol>';
+					echo '<span class="wordTitle">' , $singleTranslation["title"] , '</span>';
+					echo '<ol>';
+				}
+			}
+			$previousTitle = $singleTranslation["title"];
+			echo '<li>';
+			foreach ($singleTranslation["forms"] as $singleTranslationForm){
+				echo $singleTranslationForm;
+				if ($singleTranslationForm !== end($singleTranslation["forms"])){
+					//最後のとき以外に「、」を追加
+					echo '、';
+				}
+			}
+			echo '</li>';
+		}
+		echo '</ol>';
+		
+		foreach ($singleEntry["contents"] as $singleContent){
+			echo '<li class="wordContents">';
+			echo '<span class="wordContentTitle">' , $singleContent["title"] , '</span>';
+			echo $singleContent["text"];
+			echo '</li>';
+		}
+		$relationTitles = array();
+		foreach ($singleEntry["relations"] as $singleRelation){
+			if (array_search($singleRelation["title"],$relationTitles) === false){
+				echo '<li class="wordRelation"><span class="wordRelation">' , $singleRelation["title"] , '</span>';
+				$relationTitles[] = $singleRelation["title"];
+			}
+			echo $singleRelation["entry"]["form"] ;
+			if ($singleRelation !== end($singleEntry["relations"])){
+				//最後のとき以外に「, 」を追加
+				echo ', ';
+			}
+		}
+		echo '</li>';
+		echo '</ul>';
+	}
+
+?>
+</body>
+</html>

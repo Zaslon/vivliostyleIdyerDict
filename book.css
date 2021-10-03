@@ -1,0 +1,177 @@
+/*
+Theme Name: dict.css
+Theme URI: NULL
+Description: 辞書用に変更
+Author: Zaslon
+Author URI: https://zaslon.info
+*/
+
+
+/* 全体の設定 */
+
+@font-face {
+	font-family: 'Fazik';
+	src:
+	url('Fazik-regular.woff') format('woff'),
+	url('Fazik-regular.ttf') format('truetype');
+	}
+	
+
+a {
+	color: black;
+	}
+
+body{
+//	color:#FFFFFF;
+	height: 100%;
+	margin : auto;
+	padding : 0;
+	line-height : 1.6;
+	font-size : 14px;
+	max-height:100%;
+//	background-color : #E5E5E0;
+	font-family:"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",sans-serif;
+	overflow-x:scroll;
+	overflow-y:scroll;
+	-webkit-text-size-adjust: 100%;
+	text-align: justify;
+	}
+
+.etymology {
+	color:#ccc;
+}
+
+p {
+	text-align:left;
+	margin:auto;
+	max-height:100%;
+	}
+
+h1 {
+	margin-top:0;
+	margin-left:0.5em;
+	font-size:200%;
+	max-height:100%;
+	line-height:160%;
+}
+
+h1 a{text-decoration:none;}
+	
+h2 {
+	font-size:130%;
+	max-height:100%;
+	margin:1em 1em 0.2em;
+	width: 80%;
+	background-color:#eeeeee;
+	border: solid;
+	border-color: #773300;
+	border-width: 0 0 1px 5px;
+	padding : 0 0 0 0.5em;
+	text-align : left;
+	line-height : 120%;
+	}
+	
+h3 {
+	margin:1em 1em 0.2em;
+	width: 70%;
+	border: solid;
+	border-color:#730000;
+	border-width: 0 0 1px;
+	padding : 0 0 0 0.5em;
+	font-size : 110%;
+	max-height:100%;
+	text-align : left;
+	line-height : 100%;
+	}
+	
+h4,
+h5,
+h6 {
+	margin:1em 1em 0.2em;
+	width: 60%;
+	border-width: 0 0 1px;
+	padding : 0 0 0 0.5em;
+	font-size : 110%;
+	max-height:100%;
+	text-align : left;
+	line-height : 100%;
+	}
+
+.all {
+	word-break:break-all;
+	border-right:1px solid #aaa;
+	border-left:1px solid #aaa;
+	border-bottom:1px solid #ccc;
+	background-color : #F6F6F8;
+	width : 95%;
+	margin: auto;
+	color : #111;
+	}
+
+#header {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top : 0;
+	padding-bottom : 0;
+	margin-bottom:5px;
+	}
+
+#footer {
+	margin:0 10px;
+	border-top:1px solid #ccc;
+	clear:both;
+	color:#CCC;
+	}
+	
+#footer p {
+	text-align:center;
+	}
+
+#main {
+	padding-bottom:5px;
+	padding-left:10px;
+	padding-right: 10px;
+	padding-top : 10px;
+	clear:both;
+	}
+
+input{
+	font-family:inherit;
+	margin-right:0.2em;
+	}
+	
+ul.wordEntry {
+	padding: 10px;
+	padding-top: 0 ;
+	list-style: none;
+	border-bottom: #ccc 1px solid;
+	max-height:100%;
+}
+
+ul.wordEntry li {
+	margin-bottom: 0.2em;
+}
+
+span.wordTitle,
+span.wordContentTitle,
+span.wordRelation {
+	border: #ccc 1px solid;
+	border-radius: 3px;
+	padding: 0 0.2em 0 0.2em;
+	margin-right:1em;
+}
+
+span.wordId {
+	margin: 0 1em 0 0.2em ;
+	border: none !important;
+	color: #ccc;
+	font-size: 50%;
+	max-height:100%;
+	font-weight: normal;
+}
+
+li.wordForm {
+	font-size: 150%;
+	max-height:100%;
+	font-weight: bold;
+}
