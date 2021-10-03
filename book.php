@@ -17,11 +17,12 @@
 </head>
 <body>
 <?php
+$i = 0; //テスト用
 	//ここから表示部
 	foreach($json["words"] as $entryId => $singleEntry ) {
 	//ここに検索結果の繰り返し表示を入れる。
 		echo '<ul class="wordEntry">';
-		echo '<li class="wordForm"><span title="' , $singleEntry["entry"]["form"], '">' , $singleEntry["entry"]["form"], '</span>';
+		echo '<li class="wordForm">';
 		echo '</li>';
 		
 		$previousTitle = '';
@@ -70,6 +71,12 @@
 		}
 		echo '</li>';
 		echo '</ul>';
+		$i++;
+		///////////////////////////////テスト用////////////////////
+		if($i === 100) {
+			break;
+		}
+		///////////////////////////////テスト用ここまで////////////////////
 	}
 
 ?>
