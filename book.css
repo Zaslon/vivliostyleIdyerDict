@@ -105,33 +105,6 @@ h6 {
 	line-height : 100%;
 	}
 
-#header {
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top : 0;
-	padding-bottom : 0;
-	margin-bottom:5px;
-	}
-
-#footer {
-	margin:0 10px;
-	border-top:1px solid #ccc;
-	clear:both;
-	color:#CCC;
-	}
-	
-#footer p {
-	text-align:center;
-	}
-
-#main {
-	padding-bottom:5px;
-	padding-left:10px;
-	padding-right: 10px;
-	padding-top : 10px;
-	clear:both;
-	}
-	
 ul.wordEntry {
 	display: block;
 	padding: 0;
