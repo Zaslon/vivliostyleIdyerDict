@@ -10,15 +10,34 @@ Author URI: https://zaslon.info
 /* 全体の設定 */
 
 @page{
-	margin:5%;
-	
+	margin-top: 8mm;
+	margin-bottom:8mm;
+	line-height : 1.4;
+	font-size : 8px;
+	max-height:100%;
+	font-family:"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",sans-serif;
+	size:a5;
 	@top-left {
-	content: string(wordForm, start);
+		content: string(wordForm, start);
 	}
 	
 	@top-right {
-	content: string(wordForm, last);
+		content: string(wordForm, last);
 	}
+	
+	@top-center {
+		content: counter(page);
+	}
+}
+
+@page:left{
+	margin-left:8mm;
+	margin-right:20mm;
+}
+
+@page:right{
+	margin-left:20mm;
+	margin-right:8mm;
 }
 
 @font-face {
@@ -26,7 +45,7 @@ Author URI: https://zaslon.info
 	src:
 	url('Fazik-regular.woff') format('woff'),
 	url('Fazik-regular.ttf') format('truetype');
-	}
+}
 	
 
 ul,
@@ -40,6 +59,7 @@ a {
 
 body{
 	height: 100%;
+	min-width:5em;
 	margin : auto;
 	padding : 0;
 	line-height : 1.4;
@@ -51,6 +71,9 @@ body{
 	-webkit-text-size-adjust: 100%;
 	text-align: justify;
 	column-count: 2;
+	column-rule-style: dotted;
+	column-rule-width: 1px;
+	column-rule-color: #ccc;
 	}
 
 .etymology {
@@ -117,11 +140,16 @@ ul.wordEntry {
 	display: block;
 	padding: 0;
 	margin: 0;
-	margin-top: 5px;
 	list-style: none;
 	max-height:100%;
 }
 
+li.wordForm {
+	string-set:wordForm content();
+	max-height:100%;
+	font-weight: bold;
+	font-size:150%;
+}
 .wordTrans{
 	
 }
@@ -137,8 +165,3 @@ span.wordRelation {
 	margin:0 0.1em;
 }
 
-li.wordForm {
-	string-set:wordForm content();
-	max-height:100%;
-	font-weight: bold;
-}
