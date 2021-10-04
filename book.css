@@ -10,10 +10,10 @@ Author URI: https://zaslon.info
 /* 全体の設定 */
 
 @page{
-	margin-top: 8mm;
+	margin-top: 16mm;
 	margin-bottom:8mm;
 	line-height : 1.4;
-	font-size : 8px;
+	font-size : 8pt;
 	max-height:100%;
 	font-family:"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",sans-serif;
 	size:a5;
