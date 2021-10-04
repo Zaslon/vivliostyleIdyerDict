@@ -57,8 +57,8 @@ $i = 0; //テスト用
 				$relationTitles[] = $singleRelation["title"];
 			}
 			echo $singleRelation["entry"]["form"] ;
-			if ($singleRelation !== end($singleEntry["relations"])){
-				//最後のとき以外に「, 」を追加
+			if ($singleRelation !== end($singleEntry["relations"]) && array_search($singleRelation["title"],$relationTitles) === true){
+				//最後のとき以外 かつ 前とtitleが同じとき に「, 」を追加
 				echo ', ';
 			}
 		}
