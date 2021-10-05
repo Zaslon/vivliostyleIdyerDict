@@ -110,6 +110,11 @@ function hyphenate($string, $hyphen = "-", $extraSeparators = []){
 	$string = preg_replace($CVCV , $replacement,$string);
 	$string = preg_replace($CVCV , $replacement,$string);//CVCVCV → CV-CVCV → CV-CV-CV 少なくとも2回適用が必要
 	
+	if (isset($extraSeparators)){
+		foreach ($extraSeparators as $singleSeparator){
+			$string = str_replace($singleSeparator, $singleSeparator.$hyphen, $string);
+		}
+	}
 	$string = preg_replace($temporal, $original, $string);//子音を元に戻す。今はうまく機能しない
 	return $string;
 }
