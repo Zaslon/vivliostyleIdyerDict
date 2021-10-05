@@ -18,7 +18,7 @@
 <body>
 <?php
 	///////////////////////////////テスト用////////////////////
-	//$i = 0; 
+	$i = 0; 
 	///////////////////////////////テスト用ここまで////////////////////
 	$separators = array(":","+");
 	//ここから表示部
@@ -58,20 +58,18 @@
 			if (array_search($singleRelation["title"],$relationTitles) === false){
 				echo '<li class="wordRelation"><span class="wordRelation">' , $singleRelation["title"] , '</span>';
 				$relationTitles[] = $singleRelation["title"];
+			}else{
+				echo ",";
 			}
 			echo hyphenate($singleRelation["entry"]["form"], "<wbr>", $separators) ;
-			if ($singleRelation !== end($singleEntry["relations"]) && array_search($singleRelation["title"],$relationTitles) === true){
-				//最後のとき以外 かつ 前とtitleが同じとき に「, 」を追加
-				echo ', ';
-			}
 		}
 		echo '</li>';
 		echo '</ul>';
 		///////////////////////////////テスト用////////////////////
-		//$i++;
-		//if($i === 100) {
-		//	break;
-		//}
+		$i++;
+		if($i === 100) {
+			break;
+		}
 		///////////////////////////////テスト用ここまで////////////////////
 	}
 
