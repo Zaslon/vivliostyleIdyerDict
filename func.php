@@ -86,7 +86,7 @@ function HKSCmp($strA,$strB){
 function hyphenate($string, $hyphen = "-", $extraSeparators = []){
 	$original = array('!/s\'/u!','!/t\'/u!','!/n\'/u!','!/r\'/u!','!/z\'/u!','!/d\'/u!','!/S\'/u!','!/T\'/u!','!/N\'/u!','!/R\'/u!','!/Z\'/u!','!/D\'/u!');
 	$temporal = array('!1!','!2!','!3!','!4!','!5!','!6!','!7!','!8!','!9!','!0!','!q!','!Q!');
-	$string = preg_replace($original, $temporal, $string);//子音を1文字にする。今はうまく機能しない
+	//$string = preg_replace($original, $temporal, $string);//子音を1文字にする。今はうまく機能しない
 	$VCCCCV = '/([eaoiuEAOIU][hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ]{2})([hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ]{2}[eaoiuEAOIU])/u';
 	$VCCCV = '/([eaoiuEAOIU][hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ])([hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ]{2}[eaoiuEAOIU])/u';
 	$VCCV = '/([eaoiuEAOIU][hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ])([hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ][eaoiuEAOIU])/u';
@@ -115,6 +115,6 @@ function hyphenate($string, $hyphen = "-", $extraSeparators = []){
 			$string = str_replace($singleSeparator, $singleSeparator.$hyphen, $string);
 		}
 	}
-	$string = preg_replace($temporal, $original, $string);//子音を元に戻す。今はうまく機能しない
+	//$string = preg_replace($temporal, $original, $string);//子音を元に戻す。今はうまく機能しない
 	return $string;
 }
