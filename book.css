@@ -19,14 +19,17 @@ Author URI: https://zaslon.info
 	size:a5;
 	@top-left {
 		content: string(wordForm, start);
-	}
-	
-	@top-right {
-		content: string(wordForm, last);
+		margin-top:8mm;
 	}
 	
 	@top-center {
 		content: counter(page);
+		margin-top:8mm;
+	}
+	
+	@top-right {
+		content: string(wordForm, last);
+		margin-top:8mm;
 	}
 }
 
