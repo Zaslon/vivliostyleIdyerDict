@@ -39,35 +39,10 @@ function endsWithVowel($haystack){
 	return (bool)preg_match('/[eaoiu]$/u', $haystack);
 }
 
-//訳語部の検索用に)と】以左の文字列を消去する
-function deleteSymbolsForTrans($string){
-	$string = preg_replace('/.+[)）】]/u', '', $string);
-	return $string;
-}
-
-//見出し語部の変音記号以外の記号を削除
+//変音記号以外の記号を削除
 function deleteNonIdyerinCharacters($string){
 	$string = preg_replace('/[-\(\)\#]/u', '', $string);
 	return $string;
-}
-
-//指定を取り込んだリンク生成
-function makeLinkStarter($word, $type, $mode, $page = 1,$id = false){
-	echo '<a href=dict.php?keyBox=';
-	echo_h($word);
-	echo '&type=';
-	echo_h($type);
-	if((isset($_GET["Idf"])) && ($_GET["Idf"] != "")){
-		echo '&Idf=true';
-	}
-	echo '&mode=';
-	echo_h($mode);
-	echo '&page=';
-	echo_h($page);
-	if ($id){
-		echo '&id=' . $id;
-	}
-	echo '>';
 }
 
 //頭文字の連濁
@@ -89,142 +64,6 @@ function isDoublebyte($string) {
 	return strlen($string) !== mb_strlen($string);
 }
 
-//検索処理
-function isHit($singleEntry, $needle, $type, $mode){
-	$func = setFunc($mode);
-	switch ($type){
-		case "word":
-			return $func($singleEntry["entry"]["form"],$needle);
-			break;
-		case "trans":
-			foreach ($singleEntry["translations"] as $singleTranslation){
-				foreach ($singleTranslation["forms"] as $singleTranslationForm){
-					if ($func(deleteSymbolsForTrans($singleTranslationForm),$needle) !== false){
-						return true;
-					}
-				}
-			}
-			break;
-		case "both":
-			if ($func($singleEntry["entry"]["form"],$needle) !== false){
-				return true;
-			}
-			foreach ($singleEntry["translations"] as $singleTranslation){
-				foreach ($singleTranslation["forms"] as $singleTranslationForm){
-					if ($func(deleteSymbolsForTrans($singleTranslationForm),$needle) !== false){
-						return true;
-					}
-				}
-			}
-			break;
-		case "all":
-			if ($func($singleEntry["entry"]["form"],$needle) !== false){
-				return true;
-			}
-			foreach ($singleEntry["translations"] as $singleTranslation){
-				if ($func($singleTranslation["title"],$needle) !== false){
-					return true;
-				}
-				foreach ($singleTranslation["forms"] as $singleTranslationForm){
-					if ($type === 'all'){
-						if ($func($singleTranslationForm,$needle) !== false){
-							return true;//全文検索のときは記号も含めて検索する
-						}
-					}else{
-						if ($func(deleteSymbolsForTrans($singleTranslationForm),$needle) !== false){
-							return true;
-						}
-					}
-				}
-				foreach ($singleEntry["contents"] as $singleContent){
-					if ($func($singleContent["text"],$needle) !== false){
-						return true;
-					}
-				}
-			}
-			break;
-	}
-}
-
-//接辞サジェスト機能
-function makeDerivationTable($singleEntry, $affixTable){
-	$wordForm = $singleEntry["entry"]["form"];
-	$wordFormForPreffixs = array();
-	$texts = array();
-	
-	//動詞の場合、接尾辞はeを外した形を語幹としているので、それにあわせる。
-	if (mb_stripos($singleEntry["translations"][0]["title"],"動詞") !== false) {
-		$wordFormForSuffix = substr($wordForm, 0, strlen($wordForm)-1);
-	}else{
-		$wordFormForSuffix = $wordForm;
-	}
-	//記述詞の場合、末尾の(i)nを外した形に対しての派生があるので、それをチェックする。
-	if (mb_stripos($singleEntry["translations"][0]["title"],"記述詞") !== false) {
-		if (endsWith($wordForm, 'in')){
-			$wordFormForPreffixs[1] = substr($wordForm, 0, strlen($wordForm)-2);
-		}
-		$wordFormForPreffixs[0] = substr($wordForm, 0, strlen($wordForm)-1);
-	}else{
-		$wordFormForPreffixs[0] = $wordForm;
-	}
-	
-	//辞書のデータに対して接辞テーブルとの該当を調べる
-	$returnTable = array();
-	foreach ($affixTable as $i => $singleAffix){
-		
-		$singleAffixWithoutBracket = preg_replace('/\(.*?\)/u', '', $singleAffix[1]); //カッコつき接辞のカッコ内をカッコごとなくした形
-		if (preg_match('/(?<=\().*?(?=\))/u',$singleAffix[1]) === 1) {
-			preg_match('/(?<=\().*?(?=\))/u',$singleAffix[1], $singleAffixCharBetweenBracket);
-			$singleAffixCharBetweenBracket = $singleAffixCharBetweenBracket[0]; //カッコつき接辞のカッコ内を取り出した文字列
-		}else{
-			$singleAffixCharBetweenBracket = "";
-		} 
-		$singleAffixWithBracket = preg_replace('/[\(\)]/u', '', $singleAffix[1]); //カッコつき接辞のカッコを外した形
-		
-		if (startsWith($singleAffix[1], "-")) { //接尾辞
-			if (endsWithVowel($wordForm)){//母音で終わる単語の場合
-				$texts[0] = $wordFormForSuffix . substr($singleAffixWithoutBracket, 1);
-			}else{
-				$texts[0] = $wordFormForSuffix . substr($singleAffixWithBracket, 1);
-			}
-		}elseif (endsWith($singleAffix[1], "-")){ //接頭辞
-			foreach ($wordFormForPreffixs as $index => $singleWordFormForPreffix){
-				if (startsWithVowel($wordForm)){//母音で始まる単語の場合
-						$texts[$index] = substr($singleAffixWithoutBracket, 0, strlen($singleAffixWithoutBracket)-1) . initialVoicing($singleWordFormForPreffix);
-				}else{
-					if (isset($singleAffix[3]) && $singleAffix[3] === 'NO_VOICING'){
-						$texts[$index] = substr($singleAffixWithBracket, 0, strlen($singleAffixWithBracket)-1) . $singleWordFormForPreffix;
-					}else{
-						$texts[$index] = substr($singleAffixWithBracket, 0, strlen($singleAffixWithBracket)-1) . initialVoicing($singleWordFormForPreffix);
-					}
-				}
-			}
-		}elseif (stripos($singleAffix[1], "-") !== false){
-			//接周辞：今の所存在しない
-		}
-		foreach ($texts as $singleText){
-			$returnTable[$i][] = $singleAffix[0];
-			$returnTable[$i][] = $singleText;
-			$returnTable[$i][] = $singleAffix[2];
-		}
-	}
-	return $returnTable;
-}
-
-//func関数を指定する
-function setFunc($mode){
-	switch($mode){
-		case "prt":
-			return "stripos";
-		case "fwd":
-			return "startsWith";
-		case "perf":
-			return "endsWith";
-		default:
-			return "stripos";
-	}
-}
-
 //HKS順ソート用の比較関数 作成中
 //eaoiuhkstcnrmpfgadbv
 function HKSCmp($strA,$strB){
@@ -233,5 +72,44 @@ function HKSCmp($strA,$strB){
 	}
 	$arrA = str_split($strA);
 	$arrB = str_split($strB);
+}
 
+//ハイフネーション用
+//VCCCCV→VCC-CCV
+//VCCCV → VC-CCV
+//VCCV → VC-CV
+//VCVV → VC-VV
+//VVV → VV-V
+//VVC → V-VC
+//CVCV → CV-CV
+//配列で追加で分割したい文字列を追加できる。文字列の後での改行を許可する。
+function hyphenate($string, $hyphen = "-", $extraSeparators = []){
+	$original = array('!/s\'/u!','!/t\'/u!','!/n\'/u!','!/r\'/u!','!/z\'/u!','!/d\'/u!','!/S\'/u!','!/T\'/u!','!/N\'/u!','!/R\'/u!','!/Z\'/u!','!/D\'/u!');
+	$temporal = array('!1!','!2!','!3!','!4!','!5!','!6!','!7!','!8!','!9!','!0!','!q!','!Q!');
+	$string = preg_replace($original, $temporal, $string);//子音を1文字にする。今はうまく機能しない
+	$VCCCCV = '/([eaoiuEAOIU][hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ]{2})([hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ]{2}[eaoiuEAOIU])/u';
+	$VCCCV = '/([eaoiuEAOIU][hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ])([hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ]{2}[eaoiuEAOIU])/u';
+	$VCCV = '/([eaoiuEAOIU][hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ])([hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ][eaoiuEAOIU])/u';
+	$VVV = '/([eaoiuEAOIU]{2})([eaoiuEAOIU])/u';
+	$VVC = '/([eaoiuEAOIU])([eaoiuEAOIU][hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ])/u';
+	$VCVV = '/([eaoiuEAOIU][hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ])([eaoiuEAOIU]{2})/u';
+	$CVCV = '/([hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ][eaoiuEAOIU])([hkstcnrmpfgzdbv123456HKSTCNRMPFGZDBV7890qQ][eaoiuEAOIU])/u';
+	$replacement = '$1' . $hyphen . '$2';
+	$string = preg_replace($VCCCCV , $replacement,$string);
+	$string = preg_replace($VCCCCV , $replacement,$string);
+	$string = preg_replace($VCCCV , $replacement,$string);
+	$string = preg_replace($VCCCV , $replacement,$string);
+	$string = preg_replace($VCCV , $replacement,$string);
+	$string = preg_replace($VCCV , $replacement,$string);
+	$string = preg_replace($VCVV , $replacement,$string);
+	$string = preg_replace($VCVV , $replacement,$string);
+	$string = preg_replace($VVV , $replacement,$string);
+	$string = preg_replace($VVV , $replacement,$string);
+	$string = preg_replace($VVC , $replacement,$string);
+	$string = preg_replace($VVC , $replacement,$string);
+	$string = preg_replace($CVCV , $replacement,$string);
+	$string = preg_replace($CVCV , $replacement,$string);//CVCVCV → CV-CVCV → CV-CV-CV 少なくとも2回適用が必要
+	
+	$string = preg_replace($temporal, $original, $string);//子音を元に戻す。今はうまく機能しない
+	return $string;
 }

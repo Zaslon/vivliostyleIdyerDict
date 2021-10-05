@@ -47,7 +47,7 @@ $i = 0; //テスト用
 		foreach ($singleEntry["contents"] as $singleContent){
 			echo '<li class="wordContents">';
 			echo '<span class="wordContentTitle">' , $singleContent["title"] , '</span>';
-			echo $singleContent["text"];
+			echo hyphenate($singleContent["text"],"<wbr>-");
 			echo '</li>';
 		}
 		$relationTitles = array();
@@ -56,7 +56,7 @@ $i = 0; //テスト用
 				echo '<li class="wordRelation"><span class="wordRelation">' , $singleRelation["title"] , '</span>';
 				$relationTitles[] = $singleRelation["title"];
 			}
-			echo $singleRelation["entry"]["form"] ;
+			echo hyphenate($singleRelation["entry"]["form"],"<wbr>-") ;
 			if ($singleRelation !== end($singleEntry["relations"]) && array_search($singleRelation["title"],$relationTitles) === true){
 				//最後のとき以外 かつ 前とtitleが同じとき に「, 」を追加
 				echo ', ';
