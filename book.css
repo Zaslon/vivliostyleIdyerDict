@@ -19,6 +19,11 @@ html{
 	margin-bottom:10mm;
 	size:a5;
 	
+	@top-left,
+	@top-center,
+	@top-right{
+		border-bottom: 0.3pt solid black;
+	}	
 	@top-center {
 		content: counter(page);
 		margin-top:8mm;
@@ -52,7 +57,6 @@ html{
 	url('Fazik-regular.woff') format('woff'),
 	url('Fazik-regular.ttf') format('truetype');
 }
-	
 
 ul,
 li{
@@ -69,11 +73,14 @@ body{
 	padding : 0;
 	font-family:'Noto Sans JP','メイリオ',sans-serif;
 	text-align: justify;
-	column-count: 2;
-	column-gap: 1.5rem;
 	orphans:1;
 	widows:1;
 	}
+
+article{
+	column-count: 2;
+	column-gap: 1.5rem;
+}
 
 p {
 	text-align:left;
