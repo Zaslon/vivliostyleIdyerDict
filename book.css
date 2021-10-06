@@ -95,48 +95,6 @@ h1 {
 	line-height:160%;
 }
 
-h1 a{text-decoration:none;}
-	
-h2 {
-	font-size:130%;
-	max-height:100%;
-	margin:1em 1em 0.2em;
-	width: 80%;
-	background-color:#eeeeee;
-	border: solid;
-	border-color: #773300;
-	border-width: 0 0 1px 5px;
-	padding : 0 0 0 0.5em;
-	text-align : left;
-	line-height : 120%;
-	}
-	
-h3 {
-	margin:1em 1em 0.2em;
-	width: 70%;
-	border: solid;
-	border-color:#730000;
-	border-width: 0 0 1px;
-	padding : 0 0 0 0.5em;
-	font-size : 110%;
-	max-height:100%;
-	text-align : left;
-	line-height : 100%;
-	}
-	
-h4,
-h5,
-h6 {
-	margin:1em 1em 0.2em;
-	width: 60%;
-	border-width: 0 0 1px;
-	padding : 0 0 0 0.5em;
-	font-size : 110%;
-	max-height:100%;
-	text-align : left;
-	line-height : 100%;
-	}
-
 ul.wordEntry {
 	display: block;
 	padding: 0;
