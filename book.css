@@ -74,14 +74,12 @@ body{
 	-webkit-text-size-adjust: 100%;
 	text-align: justify;
 	column-count: 2;
-	column-rule-style: dotted;
-	column-rule-width: 1px;
-	column-rule-color: #ccc;
+//	column-rule-style: dotted;
+//	column-rule-width: 1px;
+//	column-rule-color: #ccc;
+	orphans:1;
+	widows:2;
 	}
-
-.etymology {
-	color:#ccc;
-}
 
 p {
 	text-align:left;
@@ -153,6 +151,7 @@ li.wordForm {
 	font-weight: bold;
 	font-size:9pt;
 }
+
 .wordTrans{
 	
 }
@@ -163,8 +162,6 @@ span.wordRelation {
 	display: inline-block;
 	border: #999 1px solid;
 	border-radius: 2px;
-	height:1.8em;
 	box-sizing:border-box;
 	margin:0 0.1em;
 }
-
