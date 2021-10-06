@@ -10,14 +10,12 @@ Author URI: https://zaslon.info
 /* 全体の設定 */
 
 html{
-	line-height : 1.4;
 	font-size : 7pt;
 }
 
 @page{
 	margin-top: 16mm;
 	margin-bottom:10mm;
-	font-family:"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",sans-serif;
 	size:a5;
 	
 	@top-center {
@@ -31,6 +29,7 @@ html{
 	margin-right:13mm;
 	@top-left {
 		content: string(wordForm, start);
+		font-family: 'Fazik', sans-serif;
 		margin-top:10mm;
 	}
 }
@@ -40,6 +39,7 @@ html{
 	margin-right:10mm;
 	@top-right {
 		content: string(wordForm, last);
+		font-family: 'Fazik', sans-serif;
 		margin-top:10mm;
 	}
 }
@@ -66,14 +66,9 @@ body{
 	margin : 0;
 	padding : 0;
 	font-family:'Noto Sans JP',sans-serif;
-	overflow-x:scroll;
-	overflow-y:scroll;
 	text-align: justify;
 	column-count: 2;
 	column-gap: 1.5rem;
-//	column-rule-style: dotted;
-//	column-rule-width: 1px;
-//	column-rule-color: #ccc;
 	orphans:1;
 	widows:2;
 	}
@@ -95,8 +90,7 @@ ul.wordEntry {
 li.wordForm {
 	font-family: 'Fazik', sans-serif;
 	string-set:wordForm content();
-	font-weight: bold;
-	font-size:9pt;
+	font-size:10pt;
 	line-height:1rem;
 }
 
