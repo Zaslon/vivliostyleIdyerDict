@@ -106,5 +106,5 @@ span.wordRelation {
 	border-radius: 2px;
 	box-sizing:border-box;
 	margin:0 0.1em;
-	text-indent:initial;
+	text-indent:0;
 }
