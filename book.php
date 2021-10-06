@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap');
 </style>
 <link rel="stylesheet" type="text/css" href="book.css" >
 <title>緯日辞典 本文</title>

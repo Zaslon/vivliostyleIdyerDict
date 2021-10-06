@@ -103,9 +103,12 @@ li.wordForm {
 span.wordTitle,
 span.wordContentTitle,
 span.wordRelation {
+	font-weight:300;
+	color: white;
+	background-color: #999;
 	display: inline-block;
-	border: #999 1px solid;
-	border-radius: 2px;
+	border: #999 0.3pt solid;
+	border-radius: 0.6pt;
 	box-sizing:border-box;
 	margin:0 0.1em;
 	text-indent:0;
