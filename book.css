@@ -20,7 +20,8 @@ html{
 	
 	@top-center {
 		content: counter(page);
-		margin-top:10mm;
+		margin-top:8mm;
+		font-size:6pt;
 	}
 }
 
@@ -30,7 +31,7 @@ html{
 	@top-left {
 		content: string(wordForm, start);
 		font-family: 'Fazik', sans-serif;
-		margin-top:10mm;
+		margin-top:8mm;
 	}
 }
 
@@ -40,7 +41,7 @@ html{
 	@top-right {
 		content: string(wordForm, last);
 		font-family: 'Fazik', sans-serif;
-		margin-top:10mm;
+		margin-top:8mm;
 	}
 }
 
