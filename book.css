@@ -23,7 +23,7 @@ html{
 		content: counter(page);
 		margin-top:8mm;
 		margin-bottom:8mm;
-		font-size:7pt;
+		font-size:8pt;
 		border-bottom: 0.3pt solid black;
 	}
 }
@@ -36,6 +36,10 @@ html{
 		font-family: 'Fazik', sans-serif;
 		margin-top:8mm;
 		margin-bottom:8mm;
+		font-size:8pt;
+		border-bottom: 0.3pt solid black;
+	}
+	@top-right {
 		border-bottom: 0.3pt solid black;
 	}
 }
@@ -48,6 +52,10 @@ html{
 		font-family: 'Fazik', sans-serif;
 		margin-top:8mm;
 		margin-bottom:8mm;
+		font-size:8pt;
+		border-bottom: 0.3pt solid black;
+	}
+	@top-left {
 		border-bottom: 0.3pt solid black;
 	}
 }
