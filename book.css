@@ -22,6 +22,7 @@ html{
 	@top-center {
 		content: counter(page);
 		margin-top:8mm;
+		margin-bottom:8mm;
 		font-size:7pt;
 		border-bottom: 0.3pt solid black;
 	}
@@ -34,6 +35,8 @@ html{
 		content: string(wordForm, start);
 		font-family: 'Fazik', sans-serif;
 		margin-top:8mm;
+		margin-bottom:8mm;
+		border-bottom: 0.3pt solid black;
 	}
 }
 
@@ -44,6 +47,8 @@ html{
 		content: string(wordForm, last);
 		font-family: 'Fazik', sans-serif;
 		margin-top:8mm;
+		margin-bottom:8mm;
+		border-bottom: 0.3pt solid black;
 	}
 }
 
