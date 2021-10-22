@@ -75,13 +75,13 @@ body{
 	padding : 0;
 	font-family:'Noto Sans JP','メイリオ',sans-serif;
 	text-align: justify;
-	orphans:1;
-	widows:1;
 	}
 
 article{
 	column-count: 2;
 	column-gap: 1.5rem;
+	orphans:1;
+	widows:1;
 }
 
 p {
