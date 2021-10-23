@@ -26,11 +26,6 @@ html{
 		font-size:8pt;
 		border-bottom: 0.3pt solid black;
 	}
-}
-
-@page:left{
-	margin-left:10mm;
-	margin-right:13mm;
 	@top-left {
 		content: string(wordForm, start);
 		font-family: 'Fazik', sans-serif;
@@ -40,15 +35,6 @@ html{
 		border-bottom: 0.3pt solid black;
 	}
 	@top-right {
-		content: "";
-		border-bottom: 0.3pt solid black;
-	}
-}
-
-@page:right{
-	margin-left:13mm;
-	margin-right:10mm;
-	@top-right {
 		content: string(wordForm, last);
 		font-family: 'Fazik', sans-serif;
 		margin-top:8mm;
@@ -56,9 +42,21 @@ html{
 		font-size:8pt;
 		border-bottom: 0.3pt solid black;
 	}
+}
+
+@page:left{
+	margin-left:10mm;
+	margin-right:13mm;
+	@top-right {
+		content: "";
+	}
+}
+
+@page:right{
+	margin-left:13mm;
+	margin-right:10mm;
 	@top-left {
 		content: "";
-		border-bottom: 0.3pt solid black;
 	}
 }
 
