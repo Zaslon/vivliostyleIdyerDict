@@ -40,6 +40,7 @@ html{
 		border-bottom: 0.3pt solid black;
 	}
 	@top-right {
+		content: "";
 		border-bottom: 0.3pt solid black;
 	}
 }
@@ -56,6 +57,7 @@ html{
 		border-bottom: 0.3pt solid black;
 	}
 	@top-left {
+		content: "";
 		border-bottom: 0.3pt solid black;
 	}
 }
