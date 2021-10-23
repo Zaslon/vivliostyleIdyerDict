@@ -16,7 +16,7 @@ html{
 
 @page{
 	margin-top: 16mm;
-	margin-bottom:10mm;
+	margin-bottom:11mm;
 	size:a5;
 	
 	@top-center {
@@ -126,14 +126,19 @@ span.wordTitle,
 span.wordContentTitle,
 span.wordRelation {
 	font-weight:300;
-	color: white;
-	background-color: #999;
-	display: inline-block;
-	border: #999 0.3pt solid;
-	border-radius: 0.6pt;
-	box-sizing:border-box;
 	margin:0 0.1em;
 	text-indent:0;
-	font-size: 6pt;
 	vertical-align: middle;
+}
+
+span.wordTitle:before,
+span.wordContentTitle:before,
+span.wordRelation:before {
+	content:"《";
+}
+
+span.wordTitle:after,
+span.wordContentTitle:after,
+span.wordRelation:after {
+	content:"》";
 }
