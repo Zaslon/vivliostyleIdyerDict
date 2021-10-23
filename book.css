@@ -42,6 +42,11 @@ html{
 		font-size:10pt;
 		border-bottom: 0.3pt solid black;
 	}
+	@bottom-center{
+		content: "　";
+		margin-top:1mm;
+		border-top: 0.3pt solid black;
+	}
 }
 
 @page:left{
