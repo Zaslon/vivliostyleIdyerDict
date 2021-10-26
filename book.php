@@ -6,6 +6,13 @@
 	$json = file_get_contents($fname);
 	$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 	$json = json_decode($json,true);
+	
+	//ソート
+	$arrSort = array();
+	foreach($json["words"] as $singleEntry ){
+		$arrSort[] = $singleEntry["entry"]["form"]; //キーはentryId
+	}
+	uasort($arrSort , "HKSCmp");
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +38,10 @@
 	///////////////////////////////テスト用ここまで////////////////////
 	$separators = array(":","+");
 	//ここから表示部
-	foreach($json["words"] as $entryId => $singleEntry ) {
-	//ここに検索結果の繰り返し表示を入れる。
+	
+	
+	foreach($arrSort as $entryId => $singleArrSort){
+		$singleEntry = $json["words"][$entryId];
 		echo '<ul class="wordEntry">';
 		echo '<li class="wordForm">', $singleEntry["entry"]["form"], '</li>';
 		
