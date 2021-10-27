@@ -88,11 +88,10 @@ h1{
 	border-top:0.3pt black solid;
 	border-bottom:0.3pt black solid;
 	margin:0.5rem 0;
-	
 }
 
-h1.e{
-	string-set: e "A";
+h1.edge{
+	string-set: e none;
 	string-set: a none;
 	string-set: o none;
 	string-set: i none;
@@ -114,14 +113,31 @@ h1.e{
 	string-set: v none;
 }
 
-div.e{
-	content:string(e, last);
+h1.edge#e{string-set: e "E";}
+h1.edge#a{string-set: a "A";}
+
+div#e::before{
+	content: string(e);
 	position: fixed;
-	color: black;
+	color:white;
+	background-color: black;
 	left: 0;
-	top: 50mm;
-	height:20mm;
-	width: 100mm;
+	top: 8mm;
+	height:8mm;
+	width: 10mm;
+	border-radius: 0 0.5mm 0.5mm 0;
+}
+
+div#a::before{
+	content: string(a);
+	position: fixed;
+	color:white;
+	background-color: black;
+	left: 0;
+	top: 20mm;
+	height:8mm;
+	width: 10mm;
+	border-radius: 0 0.5mm 0.5mm 0;
 }
 
 ul,

@@ -39,6 +39,9 @@
 	$separators = array(":","+");
 	//ここから表示部
 	
+	echo '<div class="edge" id="e"></div>';
+	echo '<div class="edge" id="a"></div>';
+	
 	$firstTry = true;
 	foreach($arrSort as $entryId => $singleArrSort){
 		$singleEntry = $json["words"][$entryId];
@@ -51,7 +54,7 @@
 				echo '<h1 class="', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
 			}
 		}else{
-			echo '<h1 class="', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
+			echo '<h1 class="edge" id=', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
 			$firstTry = false;
 		}
 		
