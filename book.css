@@ -80,6 +80,50 @@ html{
 	url('Fazik-regular.ttf') format('truetype');
 }
 
+h1{
+	font-size:15pt;
+	line-height:1.5em;
+	text-align:center;
+	background:#eee;
+	border-top:0.3pt black solid;
+	border-bottom:0.3pt black solid;
+	margin:0.5rem 0;
+	
+}
+
+h1.e{
+	string-set: e "A";
+	string-set: a none;
+	string-set: o none;
+	string-set: i none;
+	string-set: u none;
+	string-set: h none;
+	string-set: k none;
+	string-set: s none;
+	string-set: t none;
+	string-set: c none;
+	string-set: n none;
+	string-set: r none;
+	string-set: m none;
+	string-set: p none;
+	string-set: f none;
+	string-set: g none;
+	string-set: z none;
+	string-set: d none;
+	string-set: b none;
+	string-set: v none;
+}
+
+div.e{
+	content:string(e, last);
+	position: fixed;
+	color: black;
+	left: 0;
+	top: 50mm;
+	height:20mm;
+	width: 100mm;
+}
+
 ul,
 li{
 	display: inline;

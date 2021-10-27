@@ -39,9 +39,23 @@
 	$separators = array(":","+");
 	//ここから表示部
 	
-	
+	$firstTry = true;
 	foreach($arrSort as $entryId => $singleArrSort){
 		$singleEntry = $json["words"][$entryId];
+		$firstLetter = mb_strtolower(mb_substr(deleteNonIdyerinCharacters($singleEntry["entry"]["form"]),0,1));
+		
+		if ($firstTry === false){
+			$previousFirstLetter = mb_strtolower(mb_substr(deleteNonIdyerinCharacters($json["words"][$previousEntryId]["entry"]["form"]),0,1));
+			
+			if ( $previousFirstLetter !== $firstLetter){
+				echo '<h1 class="', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
+			}
+		}else{
+			echo '<h1 class="', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
+			$firstTry = false;
+		}
+		
+		
 		echo '<ul class="wordEntry">';
 		echo '<li class="wordForm">', $singleEntry["entry"]["form"], '</li>';
 		
@@ -83,6 +97,8 @@
 		}
 		echo '</li>';
 		echo '</ul>';
+		
+		$previousEntryId = $entryId;
 		///////////////////////////////テスト用////////////////////
 		if ($isTest){
 			$i++;
