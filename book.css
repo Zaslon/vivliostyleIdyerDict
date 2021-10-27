@@ -137,14 +137,14 @@ span.wordRelation {
 	text-indent:0;
 }
 
-span.wordTitle:before,
-span.wordContentTitle:before,
-span.wordRelation:before {
+span.wordTitle::before,
+span.wordContentTitle::before,
+span.wordRelation::before {
 	content:"《";
 }
 
-span.wordTitle:after,
-span.wordContentTitle:after,
-span.wordRelation:after {
+span.wordTitle::after,
+span.wordContentTitle::after,
+span.wordRelation::after {
 	content:"》";
 }
