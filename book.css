@@ -56,20 +56,44 @@ html{
 }
 
 @page:left{
-	margin-left:10mm;
-	margin-right:13mm;
+	margin-left:12mm;
+	margin-right:15mm;
 	@top-right {
 		content: " ";
 		white-space: pre;
 	}
+	@left-middle {
+		content: string(e);
+		font-size: 10pt;
+		text-align:right;
+		padding:0.3em ;
+		color:white;
+		height: 5mm;
+		margin-right:2mm;
+		margin-top:-200mm;;
+		background-color: black;
+		border-radius: 0 0.5mm 0.5mm 0;
+	}
 }
 
 @page:right{
-	margin-left:13mm;
-	margin-right:10mm;
+	margin-left:15mm;
+	margin-right:12mm;
 	@top-left {
 		content: " ";
 		white-space: pre;
+	}
+	@right-middle {
+		content: string(e);
+		font-size: 10pt;
+		text-align:left;
+		padding:0.3em ;
+		color:white;
+		height: 5mm;
+		margin-left:2mm;
+		margin-top:-200mm;;
+		background-color: black;
+		border-radius: 0.5mm 0 0 0.5mm;
 	}
 }
 
@@ -90,55 +114,8 @@ h1{
 	margin:0.5rem 0;
 }
 
-h1.edge{
-	string-set: e none;
-	string-set: a none;
-	string-set: o none;
-	string-set: i none;
-	string-set: u none;
-	string-set: h none;
-	string-set: k none;
-	string-set: s none;
-	string-set: t none;
-	string-set: c none;
-	string-set: n none;
-	string-set: r none;
-	string-set: m none;
-	string-set: p none;
-	string-set: f none;
-	string-set: g none;
-	string-set: z none;
-	string-set: d none;
-	string-set: b none;
-	string-set: v none;
-}
-
-h1.edge#e{string-set: e "E";}
-h1.edge#a{string-set: a "A";}
-
-div#e::before{
-	content: string(e);
-	position: fixed;
-	color:white;
-	background-color: black;
-	left: 0;
-	top: 8mm;
-	height:8mm;
-	width: 10mm;
-	border-radius: 0 0.5mm 0.5mm 0;
-}
-
-div#a::before{
-	content: string(a);
-	position: fixed;
-	color:white;
-	background-color: black;
-	left: 0;
-	top: 20mm;
-	height:8mm;
-	width: 10mm;
-	border-radius: 0 0.5mm 0.5mm 0;
-}
+h1.edge#e{string-set: e "E",a "", o "", i "",u "", h "",k "",s "",t "",c "",n "",r "",m "",p "",f "",g "",z "",d "",b "",v "";}
+h1.edge#a{string-set: e "",a "A", o "", i "",u "", h "",k "",s "",t "",c "",n "",r "",m "",p "",f "",g "",z "",d "",b "",v "";}
 
 ul,
 li{

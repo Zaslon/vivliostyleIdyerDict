@@ -38,10 +38,7 @@
 	///////////////////////////////テスト用ここまで////////////////////
 	$separators = array(":","+");
 	//ここから表示部
-	
-	echo '<div class="edge" id="e"></div>';
-	echo '<div class="edge" id="a"></div>';
-	
+		
 	$firstTry = true;
 	foreach($arrSort as $entryId => $singleArrSort){
 		$singleEntry = $json["words"][$entryId];
@@ -51,7 +48,7 @@
 			$previousFirstLetter = mb_strtolower(mb_substr(deleteNonIdyerinCharacters($json["words"][$previousEntryId]["entry"]["form"]),0,1));
 			
 			if ( $previousFirstLetter !== $firstLetter){
-				echo '<h1 class="', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
+				echo '<h1 class="edge" id=', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
 			}
 		}else{
 			echo '<h1 class="edge" id=', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
