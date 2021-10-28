@@ -63,9 +63,11 @@ html{
 		white-space: pre;
 	}
 	@left-middle {
+		font-family: 'Fazik', sans-serif;
 		content: string(e);
 		font-size: 10pt;
 		text-align:right;
+		vertical-align: center;
 		padding:0.3em ;
 		color:white;
 		height: 5mm;
@@ -84,9 +86,11 @@ html{
 		white-space: pre;
 	}
 	@right-middle {
+		font-family: 'Fazik', sans-serif;
 		content: string(e);
 		font-size: 10pt;
 		text-align:left;
+		vertical-align: center;
 		padding:0.3em ;
 		color:white;
 		height: 5mm;
@@ -105,13 +109,16 @@ html{
 }
 
 h1{
+	font-family: 'Fazik', sans-serif;
 	font-size:15pt;
-	line-height:1.5em;
+	line-height:1em;
 	text-align:center;
 	background:#eee;
 	border-top:0.3pt black solid;
 	border-bottom:0.3pt black solid;
 	margin:0.5rem 0;
+	padding-top:0.4em;
+	padding-bottom:0.2em;
 }
 
 h1.edge#e{string-set: e "E",a "", o "", i "",u "", h "",k "",s "",t "",c "",n "",r "",m "",p "",f "",g "",z "",d "",b "",v "";}

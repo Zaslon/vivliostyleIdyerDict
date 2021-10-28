@@ -48,10 +48,10 @@
 			$previousFirstLetter = mb_strtolower(mb_substr(deleteNonIdyerinCharacters($json["words"][$previousEntryId]["entry"]["form"]),0,1));
 			
 			if ( $previousFirstLetter !== $firstLetter){
-				echo '<h1 class="edge" id=', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
+				echo '<h1 class="edge" id="', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
 			}
 		}else{
-			echo '<h1 class="edge" id=', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
+			echo '<h1 class="edge" id="', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
 			$firstTry = false;
 		}
 		
