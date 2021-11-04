@@ -169,8 +169,16 @@ li.wordForm {
 	line-height:1;
 }
 
-.wordTrans{
-	
+.wordTransWithNumber{
+	counter-increment: wordTrans;
+}
+
+.wordTransWithNumber::before{
+	content: counter(wordTrans) ". ";
+}
+
+span.wordTitle{
+	counter-reset: wordTrans 0;
 }
 
 span.wordTitle,

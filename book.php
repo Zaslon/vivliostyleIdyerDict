@@ -30,7 +30,7 @@
 <article>
 <?php
 	///////////////////////////////テスト用////////////////////
-	$isTest = false;
+	$isTest = true;
 	
 	if ($isTest){
 		$testI = 0; 
@@ -60,25 +60,27 @@
 		echo '<li class="wordForm">', $singleEntry["entry"]["form"], '</li>';
 		
 		$previousTitle = '';
-		$transCount = 1;
+		$isNumber = false;
 		foreach ($singleEntry["translations"] as $index => $singleTranslation){
 			if ($index === 0){
 				echo '<span class="wordTitle">' , $singleTranslation["title"] , '</span>';
 				if (count($singleEntry["translations"]) !== 1 && $singleEntry["translations"][1]["title"] === $singleTranslation["title"]){
-					echo $transCount , '. ';
-					$transCount++;
+					$isNumber = true;
 				}
 			}else{
 				if ($previousTitle !== $singleTranslation["title"]) {
 					echo '<span class="wordTitle">' , $singleTranslation["title"] , '</span>';
-					$transCount = 1;
+					$isNumber = false;
 				}else{
-					echo $transCount , '. ';
-					$transCount++;
+					$isNumber = true;
 				}
 			}
 			$previousTitle = $singleTranslation["title"];
-			echo '<li class="wordTrans">';
+			if ($isNumber){
+				echo '<li class="wordTransWithNumber">';
+			}else{
+				echo '<li class="wordTrans">';
+			}
 			foreach ($singleTranslation["forms"] as $singleTranslationForm){
 				echo $singleTranslationForm;
 				if ($singleTranslationForm !== end($singleTranslation["forms"])){
