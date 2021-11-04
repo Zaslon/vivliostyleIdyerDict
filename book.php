@@ -30,10 +30,10 @@
 <article>
 <?php
 	///////////////////////////////テスト用////////////////////
-	$isTest = true;
+	$isTest = false;
 	
 	if ($isTest){
-		$i = 0; 
+		$testI = 0; 
 	}
 	///////////////////////////////テスト用ここまで////////////////////
 	$separators = array(":","+");
@@ -60,12 +60,21 @@
 		echo '<li class="wordForm">', $singleEntry["entry"]["form"], '</li>';
 		
 		$previousTitle = '';
+		$transCount = 1;
 		foreach ($singleEntry["translations"] as $index => $singleTranslation){
 			if ($index === 0){
 				echo '<span class="wordTitle">' , $singleTranslation["title"] , '</span>';
+				if (count($singleEntry["translations"]) !== 1 && $singleEntry["translations"][1]["title"] === $singleTranslation["title"]){
+					echo $transCount , '. ';
+					$transCount++;
+				}
 			}else{
 				if ($previousTitle !== $singleTranslation["title"]) {
 					echo '<span class="wordTitle">' , $singleTranslation["title"] , '</span>';
+					$transCount = 1;
+				}else{
+					echo $transCount , '. ';
+					$transCount++;
 				}
 			}
 			$previousTitle = $singleTranslation["title"];
@@ -101,8 +110,8 @@
 		$previousEntryId = $entryId;
 		///////////////////////////////テスト用////////////////////
 		if ($isTest){
-			$i++;
-			if($i === 500) {
+			$testI++;
+			if($testI === 500) {
 				break;
 			}
 		}
