@@ -24,13 +24,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap');
 </style>
 <link rel="stylesheet" type="text/css" href="book.css" >
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp-noto.min.css">
 <title>緯日辞典 本文</title>
 </head>
 <body>
 <article>
 <?php
 	///////////////////////////////テスト用////////////////////
-	$isTest = true;
+	$isTest = false;
 	
 	if ($isTest){
 		$testI = 0; 
