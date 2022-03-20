@@ -175,7 +175,7 @@ li.wordForm {
 }
 
 .wordTransWithNumber::before{
-	content: counter(wordTrans) ". ";
+	content: " " counter(wordTrans) ". ";
 }
 
 span.wordTitle{
