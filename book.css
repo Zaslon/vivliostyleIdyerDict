@@ -30,7 +30,7 @@ html{
 	@top-left {
 		content: string(wordForm, start);
 		line-height:1.5rem;
-		font-family: 'Fazik', sans-serif;
+		font-family: 'Endrata', sans-serif;
 		margin-top:8mm;
 		margin-bottom:1mm;
 		font-size:10pt;
@@ -39,7 +39,7 @@ html{
 	@top-right {
 		content: string(wordForm, last);
 		line-height:1.5rem;
-		font-family: 'Fazik', sans-serif;
+		font-family: 'Endrata', sans-serif;
 		margin-top:8mm;
 		margin-bottom:1mm;
 		font-size:10pt;
@@ -63,7 +63,7 @@ html{
 		white-space: pre;
 	}
 	@left-middle {
-		font-family: 'Fazik', sans-serif;
+		font-family: 'Endrata', sans-serif;
 		content: string(e);
 		font-size: 10pt;
 		text-align:right;
@@ -86,7 +86,7 @@ html{
 		white-space: pre;
 	}
 	@right-middle {
-		font-family: 'Fazik', sans-serif;
+		font-family: 'Endrata', sans-serif;
 		content: string(e);
 		font-size: 10pt;
 		text-align:left;
@@ -102,14 +102,14 @@ html{
 }
 
 @font-face {
-	font-family: 'Fazik';
+	font-family: 'Endrata';
 	src:
-	url('Fazik-regular.woff') format('woff'),
-	url('Fazik-regular.ttf') format('truetype');
+	url('Endrata-regular.woff') format('woff'),
+	url('Endrata-regular.ttf') format('truetype');
 }
 
 h1{
-	font-family: 'Fazik', sans-serif;
+	font-family: 'Endrata', sans-serif;
 	font-size:15pt;
 	line-height:1em;
 	text-align:center;
@@ -164,7 +164,7 @@ ul.wordEntry {
 }
 
 li.wordForm {
-	font-family: 'Fazik', sans-serif;
+	font-family: 'Endrata', sans-serif;
 	string-set:wordForm content();
 	font-size:10pt;
 	line-height:1;
