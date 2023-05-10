@@ -64,7 +64,6 @@ html{
 	}
 	@left-middle {
 		font-family: 'Endrata', sans-serif;
-		content: string(e);
 		font-size: 10pt;
 		text-align:right;
 		vertical-align: center;
@@ -72,7 +71,7 @@ html{
 		color:white;
 		height: 5mm;
 		margin-right:2mm;
-		margin-top:-200mm;;
+		margin-top:-200mm;
 		background-color: black;
 		border-radius: 0 0.5mm 0.5mm 0;
 	}
@@ -87,7 +86,6 @@ html{
 	}
 	@right-middle {
 		font-family: 'Endrata', sans-serif;
-		content: string(e);
 		font-size: 10pt;
 		text-align:left;
 		vertical-align: center;
@@ -95,7 +93,7 @@ html{
 		color:white;
 		height: 5mm;
 		margin-left:2mm;
-		margin-top:-200mm;;
+		margin-top:-200mm;
 		background-color: black;
 		border-radius: 0.5mm 0 0 0.5mm;
 	}
@@ -121,8 +119,6 @@ h1{
 	padding-bottom:0.2em;
 }
 
-h1.edge#e{string-set: e "E",a "", o "", i "",u "", h "",k "",s "",t "",c "",n "",r "",m "",p "",f "",g "",z "",d "",b "",v "";}
-h1.edge#a{string-set: e "",a "A", o "", i "",u "", h "",k "",s "",t "",c "",n "",r "",m "",p "",f "",g "",z "",d "",b "",v "";}
 
 ul,
 li{
@@ -131,7 +127,7 @@ li{
 
 a {
 	color: black;
-	}
+}
 
 body{
 	width: 100%;
