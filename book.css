@@ -9,9 +9,17 @@ Author URI: https://zaslon.info
 
 /* 全体の設定 */
 
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 html{
 	line-height: 1.4rem;
 	font-size : 7pt;
+	text-spacing: auto;
+	hanging-punctuation: allow-end;
 }
 
 @page{
