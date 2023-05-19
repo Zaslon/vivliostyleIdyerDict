@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif&family=Noto+Serif+JP&display=swap" rel="stylesheet">
-<title>緯日辞典 本文</title>
+<title>緯日辞典_本文</title>
 </head>
 <body>
 <article>
@@ -90,6 +90,7 @@
 					echo '、';
 				}
 			}
+			echo '</li>';
 		}
 		
 		foreach ($singleEntry["contents"] as $singleContent){
