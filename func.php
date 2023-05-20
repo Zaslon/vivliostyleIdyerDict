@@ -70,7 +70,7 @@ function isDoublebyte($string) {
 function HKSCmp($strA,$strB){
 	
 	$arrHks = array("e","a","o","i","u","h","k","s","t","c","n","r","m","p","f","g","z","d","b","v");
-	$odrHks = array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20");
+	$odrHks = array("-120","-119","-118","-117","-116","-115","-114","-113","-112","-111","-110","-109","-108","-107","-106","-105","-104","-103","-102","-101");
 	
 	$strA = deleteNonIdyerinCharacters($strA);
 	$strB = deleteNonIdyerinCharacters($strB);
