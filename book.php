@@ -108,8 +108,8 @@
 				echo ",";
 			}
 			echo hyphenate($singleRelation["entry"]["form"], "<wbr>", $separators) ;
+			echo '</li>';
 		}
-		echo '</li>';
 		echo '</ul>';
 		
 		$previousEntryId = $entryId;
