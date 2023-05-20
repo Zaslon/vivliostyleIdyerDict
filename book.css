@@ -227,6 +227,8 @@ span.etymology {
 }
 
 span.noIdz,
+span.noIdzLeftSide,
+span.etymology:has(+span.noIdzLeftSide),
 span.noIdzBothSide,
 span.noIdzBothSide + span,
 span.etymology:has(+span.noIdzBothSide) {

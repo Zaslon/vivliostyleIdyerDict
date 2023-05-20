@@ -111,6 +111,8 @@
 				foreach ($singleContent["text"] as $index => $singleContentText){
 					if($singleContentText === ":"){
 						echo '<span class="noIdzBothSide etymology">:</span>';
+					}elseif($singleContentText === "/"){
+						echo '<span class="noIdzLeftSide etyomology">/</span>';
 					}elseif(preg_match('/(i\..:)|(i:)/u', $singleContentText) === 1){
 						echo '<span class="noIdz etymology">';
 						echo $singleContentText;
