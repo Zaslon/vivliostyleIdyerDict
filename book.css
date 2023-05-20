@@ -13,6 +13,7 @@ Author URI: https://zaslon.info
 	--font-idz:'Endrata', YakuHanJP_Noto,'Noto Sans JP',san-serif;
 	--font-sans: YakuHanJP_Noto,'Noto Sans JP',san-serif;
 	--font-serif: YakuHanMP_Noto,'Noto Serif JP','Noto Serif',serif;
+	--font-partial-idz-serif:'EndrataMix', YakuHanMP_Noto,'Noto Serif JP','Noto Serif',serif;
 }
 
 *{
@@ -116,8 +117,16 @@ html{
 @font-face {
 	font-family: 'Endrata';
 	src:
-	url('Endrata-regular.woff') format('woff'),
+	/* url('Endrata-regular.woff') format('woff'), */
 	url('Endrata-regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'EndrataMix';
+	src: 
+	/* url('Endrata-regular.woff') format('woff'), */
+	url('Endrata-regular.ttf') format('truetype');
+	unicode-range: U+0020-007A;
 }
 
 h1{
@@ -206,4 +215,19 @@ span.wordTitle::after,
 span.wordContentTitle::after,
 span.wordRelation::after {
 	content:"》";
+}
+
+.wordContents,
+.wordRelation {
+	font-family: var(--font-partial-idz-serif);
+}
+
+span.etymology {
+	font-family: var(--font-idz);
+}
+
+span.noidz,
+span.noidz + span,
+span.etymology:has(+span.noidz) {
+	font-family: var(--font-serif);
 }
