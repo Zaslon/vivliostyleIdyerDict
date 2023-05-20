@@ -96,7 +96,25 @@
 		foreach ($singleEntry["contents"] as $singleContent){
 			echo '<li class="wordContents">';
 			echo '<span class="wordContentTitle">' , $singleContent["title"] , '</span>';
-			echo hyphenate($singleContent["text"], "<wbr>", $separators);
+
+			if ($singleContent["title"] !== "語源"){
+				echo hyphenate($singleContent["text"], "<wbr>", $separators);
+			}else{
+				$singleContent["text"] = preg_split ('/(i\..:)|(i:)|([:\/>+|])/u', $singleContent["text"], -1, PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
+				foreach ($singleContent["text"] as $index => $singleContentText){
+					if(preg_match('/(i\..:)|(i:)/u', $singleContentText) === 1){
+						echo '<span class="etymology">';
+						echo $singleContentText;
+						echo '</span>';
+					}elseif($singleContentText === ":"){
+						echo '<span class="noidz etymology">:</span>';
+					}else{
+					echo '<span class="etymology">';
+					echo hyphenate($singleContentText, "<wbr>", $separators);
+					echo '</span>';
+					}
+				}
+			}
 			echo '</li>';
 		}
 		$relationTitles = array();
