@@ -129,6 +129,10 @@ html{
 	unicode-range: U+0020-007A;
 }
 
+.idz{
+	font-family: var(--font-idz);
+}
+
 h1{
 	font-family: var(--font-idz);
 	font-size:15pt;

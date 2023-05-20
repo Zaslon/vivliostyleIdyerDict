@@ -84,10 +84,17 @@
 				echo '<li class="wordTrans">';
 			}
 			foreach ($singleTranslation["forms"] as $singleTranslationForm){
+				$isIdz = startsWith($singleTranslationForm,"=");
+				if ($isIdz){
+					echo '<span class="idz">';
+				}
 				echo $singleTranslationForm;
 				if ($singleTranslationForm !== end($singleTranslation["forms"])){
 					//最後のとき以外に「、」を追加
 					echo '、';
+				}
+				if ($isIdz){
+					echo '</span>';
 				}
 			}
 			echo '</li>';
