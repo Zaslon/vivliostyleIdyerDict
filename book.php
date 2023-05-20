@@ -109,16 +109,16 @@
 			}else{
 				$singleContent["text"] = preg_split ('/(i\..:)|(i:)|([:\/>+|])/u', $singleContent["text"], -1, PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
 				foreach ($singleContent["text"] as $index => $singleContentText){
-					if(preg_match('/(i\..:)|(i:)/u', $singleContentText) === 1){
-						echo '<span class="etymology">';
+					if($singleContentText === ":"){
+						echo '<span class="noIdzBothSide etymology">:</span>';
+					}elseif(preg_match('/(i\..:)|(i:)/u', $singleContentText) === 1){
+						echo '<span class="noIdz etymology">';
 						echo $singleContentText;
 						echo '</span>';
-					}elseif($singleContentText === ":"){
-						echo '<span class="noidz etymology">:</span>';
 					}else{
-					echo '<span class="etymology">';
-					echo hyphenate($singleContentText, "<wbr>", $separators);
-					echo '</span>';
+						echo '<span class="etymology">';
+						echo hyphenate($singleContentText, "<wbr>", $separators);
+						echo '</span>';
 					}
 				}
 			}

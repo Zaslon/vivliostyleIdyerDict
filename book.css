@@ -226,8 +226,9 @@ span.etymology {
 	font-family: var(--font-idz);
 }
 
-span.noidz,
-span.noidz + span,
-span.etymology:has(+span.noidz) {
+span.noIdz,
+span.noIdzBothSide,
+span.noIdzBothSide + span,
+span.etymology:has(+span.noIdzBothSide) {
 	font-family: var(--font-serif);
 }
