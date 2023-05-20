@@ -166,23 +166,20 @@ body{
 
 p {
 	text-align:left;
-	margin:auto;
 	}
 
 ul.wordEntry {
 	display: block;
-	padding: 0;
-	margin: 0;
 	list-style: none;
 	text-indent:-1rem;
 	margin-left:1rem;
+	line-height: 1.3rem;
 }
 
 li.wordForm {
 	font-family: var(--font-idz);
 	string-set:wordForm content();
 	font-size:10pt;
-	line-height:1;
 }
 
 .wordTransWithNumber{
