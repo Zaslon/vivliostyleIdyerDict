@@ -223,7 +223,7 @@ span.wordRelation::after {
 }
 
 span.etymology {
-	font-family: var(--font-idz);
+	font-family: var(--font-partial-idz-serif);
 }
 
 span.noIdz,
