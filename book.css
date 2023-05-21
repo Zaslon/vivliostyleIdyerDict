@@ -11,8 +11,8 @@ Author URI: https://zaslon.info
 
 :root{
 	--font-idz:'Endrata', YakuHanJP_Noto,'Noto Sans JP',san-serif;
-	--font-sans: YakuHanJP_Noto,'Noto Sans JP',san-serif;
-	--font-serif: YakuHanMP_Noto,'Noto Serif JP','Noto Serif',serif;
+	--font-sans: 'Noto Sans JP',san-serif;
+	--font-serif: 'Noto Serif JP','Noto Serif',serif;
 	--font-partial-idz-serif:'EndrataMix', YakuHanMP_Noto,'Noto Serif JP','Noto Serif',serif;
 }
 
@@ -24,7 +24,7 @@ Author URI: https://zaslon.info
 
 html{
 	line-height: 1.4rem;
-	font-size : 7pt;
+	font-size : 10q;
 	text-spacing: auto;
 	hanging-punctuation: allow-end;
 }
@@ -39,7 +39,6 @@ html{
 		line-height:1.5rem;
 		margin-top:8mm;
 		margin-bottom:1mm;
-		font-size:9pt;
 		border-bottom: 0.3pt solid black;
 	}
 	@top-left {
@@ -48,7 +47,6 @@ html{
 		font-family: var(--font-idz);
 		margin-top:8mm;
 		margin-bottom:1mm;
-		font-size:10pt;
 		border-bottom: 0.3pt solid black;
 	}
 	@top-right {
@@ -57,7 +55,6 @@ html{
 		font-family: var(--font-idz);
 		margin-top:8mm;
 		margin-bottom:1mm;
-		font-size:10pt;
 		border-bottom: 0.3pt solid black;
 	}
 	@bottom-center{
@@ -79,7 +76,6 @@ html{
 	}
 	@left-middle {
 		font-family: var(--font-idz);
-		font-size: 10pt;
 		text-align:right;
 		vertical-align: center;
 		padding:0.3em ;
@@ -101,7 +97,6 @@ html{
 	}
 	@right-middle {
 		font-family: var(--font-idz);
-		font-size: 10pt;
 		text-align:left;
 		vertical-align: center;
 		padding:0.3em ;
@@ -182,7 +177,8 @@ ul.wordEntry {
 li.wordForm {
 	font-family: var(--font-idz);
 	string-set:wordForm content();
-	font-size:10pt;
+	font-size: 12q;
+	font-weight: bold;
 }
 
 .wordTransWithNumber{
