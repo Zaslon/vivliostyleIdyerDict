@@ -105,7 +105,8 @@
 			echo '<span class="wordContentTitle">' , $singleContent["title"] , '</span>';
 
 			if ($singleContent["title"] !== "語源"){
-				echo hyphenate($singleContent["text"], "<wbr>", $separators);
+				$singleContent["text"] = preg_replace('/(英|独|仏|露|ドイツ|フランス|ロシア)語の([A-z]+)/u', '$1語の<span class="noIdz">$2</span>', $singleContent["text"]);
+				echo $singleContent["text"];
 			}else{
 				$singleContent["text"] = preg_split ('/(i\..:)|(i:)|([:\/>+|])/u', $singleContent["text"], -1, PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
 				foreach ($singleContent["text"] as $index => $singleContentText){
