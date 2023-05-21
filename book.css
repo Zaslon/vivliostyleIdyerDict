@@ -14,6 +14,9 @@ Author URI: https://zaslon.info
 	--font-sans: 'Noto Sans JP',san-serif;
 	--font-serif: 'Noto Serif JP','Noto Serif',serif;
 	--font-partial-idz-serif:'EndrataMix', 'Noto Serif JP','Noto Serif',serif;
+
+	--margin-ud: 15mm;
+	--margin-body-end: 1rem;
 }
 
 *{
@@ -24,88 +27,61 @@ Author URI: https://zaslon.info
 
 html{
 	line-height: 1.4rem;
+	font-family: var(--font-serif);
 	font-size : 10q;
 	text-spacing: auto;
 	hanging-punctuation: allow-end;
 }
 
 @page{
-	margin-top: calc(8mm + 1.5rem + 1mm);
-	margin-bottom:calc(8mm + 1mm);
+	margin-top: var(--margin-ud);
+	margin-bottom: var(--margin-ud);
 	size:a5;
 	
 	@top-center {
-		content: counter(page);
-		line-height:1.5rem;
-		margin-top:8mm;
-		margin-bottom:1mm;
-		border-bottom: 0.3pt solid black;
-	}
-	@top-left {
-		content: string(wordForm, start);
-		line-height:1.5rem;
+		content: "";
+		line-height: 1.6em;
+		vertical-align: bottom;
 		font-family: var(--font-idz);
-		margin-top:8mm;
-		margin-bottom:1mm;
-		border-bottom: 0.3pt solid black;
-	}
-	@top-right {
-		content: string(wordForm, last);
-		line-height:1.5rem;
-		font-family: var(--font-idz);
-		margin-top:8mm;
-		margin-bottom:1mm;
+		margin-bottom: var(--margin-body-end);
+		font-size:12q;
 		border-bottom: 0.3pt solid black;
 	}
 	@bottom-center{
-		line-height:1.5rem;
-		content: " ";
+		content: counter(page);
+		line-height: 2em;
+		vertical-align: top;
+		font-family: var(--font-sanserif);
 		white-space: pre;
-		margin-top:1mm;
-		margin-bottom:8mm;
+		margin-top:var(--margin-body-end);
+		font-size:14q;
 		border-top: 0.3pt solid black;
 	}
 }
 
 @page:left{
-	margin-left:12mm;
-	margin-right:15mm;
-	@top-right {
-		content: " ";
+	margin-right:26.5mm;
+	margin-left:16.5mm;
+	@top-center {
+		content: string(wordForm);
 		white-space: pre;
+		text-align: left;
 	}
-	@left-middle {
-		font-family: var(--font-idz);
-		text-align:right;
-		vertical-align: center;
-		padding:0.3em ;
-		color:white;
-		height: 5mm;
-		margin-right:2mm;
-		margin-top:-200mm;
-		background-color: black;
-		border-radius: 0 0.5mm 0.5mm 0;
+	@bottom-center{
+		text-align: left;
 	}
 }
 
 @page:right{
-	margin-left:15mm;
-	margin-right:12mm;
-	@top-left {
-		content: " ";
+	margin-left:26.5mm;
+	margin-right:16.5mm;
+	@top-center {
+		content: string(wordForm);
 		white-space: pre;
+		text-align: right;
 	}
-	@right-middle {
-		font-family: var(--font-idz);
-		text-align:left;
-		vertical-align: center;
-		padding:0.3em ;
-		color:white;
-		height: 5mm;
-		margin-left:2mm;
-		margin-top:-200mm;
-		background-color: black;
-		border-radius: 0.5mm 0 0 0.5mm;
+	@bottom-center{
+		text-align: right;
 	}
 }
 
