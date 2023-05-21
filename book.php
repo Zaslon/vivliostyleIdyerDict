@@ -61,6 +61,12 @@
 		echo '<ul class="wordEntry">';
 		echo '<li class="wordForm">', $singleEntry["entry"]["form"], '</li>';
 		
+		if ($isTest){
+			echo '<li class=pronouciation>'test, $singleEntry["entry"]["form"], '</li>';
+		}else{
+			echo '<li class="pronounciation">', akrantiain($singleEntry["entry"]["form"]), '</li>';
+		}
+
 		$previousTitle = '';
 		$isNumber = false;
 		foreach ($singleEntry["translations"] as $index => $singleTranslation){

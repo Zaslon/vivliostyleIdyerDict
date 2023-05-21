@@ -155,6 +155,12 @@ li.wordForm {
 	string-set:wordForm content();
 	font-size: 12q;
 	font-weight: bold;
+	margin-right: 0.5rem;
+}
+
+li.pronounciation::before,
+li.pronounciation::after{
+	content: "/";
 }
 
 .wordTransWithNumber{

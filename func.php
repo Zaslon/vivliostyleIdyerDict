@@ -140,3 +140,11 @@ function hyphenate($string, $hyphen = "-", $extraSeparators = []){
 	//$string = preg_replace($temporal, $original, $string);//子音を元に戻す。今はうまく機能しない
 	return $string;
 }
+
+//akrantiain用
+
+function akrantiain($word){
+	$output = [];
+	exec ("node convert-pronunciation.js \"$word\"", $output);
+	return $output[0];
+}
