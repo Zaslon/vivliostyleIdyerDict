@@ -10,10 +10,10 @@ Author URI: https://zaslon.info
 /* 全体の設定 */
 
 :root{
-	--font-idz:'Endrata', YakuHanJP_Noto,'Noto Sans JP',san-serif;
+	--font-idz:'Endrata', 'Noto Sans JP',san-serif;
 	--font-sans: 'Noto Sans JP',san-serif;
 	--font-serif: 'Noto Serif JP','Noto Serif',serif;
-	--font-partial-idz-serif:'EndrataMix', YakuHanMP_Noto,'Noto Serif JP','Noto Serif',serif;
+	--font-partial-idz-serif:'EndrataMix', 'Noto Serif JP','Noto Serif',serif;
 }
 
 *{
