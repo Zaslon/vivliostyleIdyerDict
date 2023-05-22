@@ -87,17 +87,40 @@ html{
 
 @font-face {
 	font-family: 'Endrata';
+	font-weight: normal;
 	src:
-	/* url('Endrata-regular.woff') format('woff'), */
-	url('Endrata-regular.ttf') format('truetype');
+	url('font/Endrata-release/Endrata-regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Endrata';
+	font-weight: bold;
+	src:
+	url('font/Endrata-release/Endrata-bold.ttf') format('truetype');
+}
+
+
+@font-face {
+	font-family: 'EndrataMix';
+	font-weight: normal;
+	src: 
+	url('font/Endrata-release/Endrata-regular.ttf') format('truetype');
+	unicode-range: U+0020-007A;
 }
 
 @font-face {
 	font-family: 'EndrataMix';
+	font-weight: bold;
 	src: 
-	/* url('Endrata-regular.woff') format('woff'), */
-	url('Endrata-regular.ttf') format('truetype');
+	url('font/Endrata-release/Endrata-bold.ttf') format('truetype');
 	unicode-range: U+0020-007A;
+}
+
+@font-face {
+	font-family: 'Doulos SIL';
+	font-weight: normal;
+	src:
+	url('font/DoulosSIL-6.200/DoulosSIL-Regular.ttf') format('truetype');
 }
 
 .idz{
@@ -161,6 +184,10 @@ li.wordForm {
 li.pronounciation::before,
 li.pronounciation::after{
 	content: "/";
+}
+
+li.pronounciation{
+	font-family: 'Doulos SIL';
 }
 
 .wordTransWithNumber{
