@@ -63,7 +63,7 @@ html{
 	margin-right:26.5mm;
 	margin-left:16.5mm;
 	@top-center {
-		content: string(wordForm);
+		content: string(wordForm, start);
 		white-space: pre;
 		text-align: left;
 	}
@@ -76,7 +76,7 @@ html{
 	margin-left:26.5mm;
 	margin-right:16.5mm;
 	@top-center {
-		content: string(wordForm);
+		content: string(wordForm, last);
 		white-space: pre;
 		text-align: right;
 	}
