@@ -17,6 +17,8 @@ Author URI: https://zaslon.info
 
 	--margin-ud: 15mm;
 	--margin-body-end: 1rem;
+	--margin-inside: 15mm;
+	--margin-outside: 21mm;
 }
 
 *{
@@ -60,8 +62,8 @@ html{
 }
 
 @page:left{
-	margin-right:26.5mm;
-	margin-left:16.5mm;
+	margin-right:var(--margin-outside);
+	margin-left:var(--margin-inside);
 	@top-center {
 		content: string(wordForm, start);
 		white-space: pre;
@@ -73,8 +75,8 @@ html{
 }
 
 @page:right{
-	margin-left:26.5mm;
-	margin-right:16.5mm;
+	margin-left:var(--margin-inside);
+	margin-right:var(--margin-outside);
 	@top-center {
 		content: string(wordForm, last);
 		white-space: pre;
