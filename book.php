@@ -1,5 +1,26 @@
 <?php
 	require 'func.php';
+
+	define ("HEADER", '<!DOCTYPE html>
+	<html lang="ja">
+	<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+	<link rel="stylesheet" type="text/css" href="book.css" >
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp-noto.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanmp-noto.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif&family=Noto+Serif+JP&display=swap" rel="stylesheet">
+	<title>緯日辞典_本文</title>
+	</head>
+	<body>
+	<article>');
+
+	define ("FOOTER", '
+	</article>
+	</body>
+	</html>');
 	
 	//json読み込み
 	$fname = 'idyer.json';
@@ -14,32 +35,13 @@
 	}
 	uasort($arrSort , "HKSCmp");
 
-	ob_start();
-
-	echo '
-		<!DOCTYPE html>
-		<html lang="ja">
-		<head>
-		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" >
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
-		<link rel="stylesheet" type="text/css" href="book.css" >
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp-noto.min.css">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanmp-noto.min.css">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif&family=Noto+Serif+JP&display=swap" rel="stylesheet">
-		<title>緯日辞典_本文</title>
-		</head>
-		<body>
-		<article>
-		';
+	ob_start();	
+	echo HEADER;
 
 	///////////////////////////////テスト用////////////////////
 	$isTest = false;
-	
-	if ($isTest){
-		$testI = 0; 
-	}
+	$testWordCount = 1000;
+	$testI = 0; 
 	///////////////////////////////テスト用ここまで////////////////////
 	$separators = array(":","+");
 	//ここから表示部
@@ -53,6 +55,12 @@
 			$previousFirstLetter = mb_strtolower(mb_substr(deleteNonIdyerinCharacters($json["words"][$previousEntryId]["entry"]["form"]),0,1));
 			
 			if ( $previousFirstLetter !== $firstLetter){
+				echo FOOTER;
+				$out = ob_get_clean();
+				file_put_contents( $previousFirstLetter.'.html', $out );
+				
+				ob_start();
+				echo HEADER;
 				echo '<h1 class="edge" id="', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
 			}
 		}else{
@@ -152,20 +160,19 @@
 		///////////////////////////////テスト用////////////////////
 		if ($isTest){
 			$testI++;
-			if($testI === 500) {
+			if($testI === $testWordCount) {
 				break;
 			}
 		}
 		///////////////////////////////テスト用ここまで////////////////////
 	}
 
-	echo '
-		</article>
-		</body>
-		</html>
-		';
+	echo FOOTER;
 
 	$out = ob_get_clean();
-	echo $out;
+	file_put_contents( $firstLetter.'.html', $out );	
+
+	echo "Success";
+	exit(0);
 
 ?>
