@@ -13,24 +13,27 @@
 		$arrSort[] = $singleEntry["entry"]["form"]; //キーはentryId
 	}
 	uasort($arrSort , "HKSCmp");
-?>
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" >
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
-<link rel="stylesheet" type="text/css" href="book.css" >
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp-noto.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanmp-noto.min.css"> -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif&family=Noto+Serif+JP&display=swap" rel="stylesheet">
-<title>緯日辞典_本文</title>
-</head>
-<body>
-<article>
-<?php
+	ob_start();
+
+	echo '
+		<!DOCTYPE html>
+		<html lang="ja">
+		<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" >
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+		<link rel="stylesheet" type="text/css" href="book.css" >
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp-noto.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanmp-noto.min.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif&family=Noto+Serif+JP&display=swap" rel="stylesheet">
+		<title>緯日辞典_本文</title>
+		</head>
+		<body>
+		<article>
+		';
+
 	///////////////////////////////テスト用////////////////////
 	$isTest = false;
 	
@@ -41,12 +44,12 @@
 	$separators = array(":","+");
 	//ここから表示部
 		
-	$firstTry = true;
+	$isFirstTry = true;
 	foreach($arrSort as $entryId => $singleArrSort){
 		$singleEntry = $json["words"][$entryId];
 		$firstLetter = mb_strtolower(mb_substr(deleteNonIdyerinCharacters($singleEntry["entry"]["form"]),0,1));
 		
-		if ($firstTry === false){
+		if (!$isFirstTry){
 			$previousFirstLetter = mb_strtolower(mb_substr(deleteNonIdyerinCharacters($json["words"][$previousEntryId]["entry"]["form"]),0,1));
 			
 			if ( $previousFirstLetter !== $firstLetter){
@@ -54,7 +57,7 @@
 			}
 		}else{
 			echo '<h1 class="edge" id="', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
-			$firstTry = false;
+			$isFirstTry = false;
 		}
 		
 		
@@ -62,7 +65,7 @@
 		echo '<li class="wordForm">', $singleEntry["entry"]["form"], '</li>';
 		
 		if ($isTest){
-			echo '<li class=pronouciation>'test, $singleEntry["entry"]["form"], '</li>';
+			echo '<li class=pronounciation>test', $singleEntry["entry"]["form"], '</li>';
 		}else{
 			echo '<li class="pronounciation">', akrantiain($singleEntry["entry"]["form"]), '</li>';
 		}
@@ -156,7 +159,13 @@
 		///////////////////////////////テスト用ここまで////////////////////
 	}
 
+	echo '
+		</article>
+		</body>
+		</html>
+		';
+
+	$out = ob_get_clean();
+	echo $out;
+
 ?>
-</article>
-</body>
-</html>
