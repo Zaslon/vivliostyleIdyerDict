@@ -1,12 +1,15 @@
 <?php
 	require 'func.php';
 
-	define ("HEADER", '<!DOCTYPE html>
+	define ("HEADER1", '<!DOCTYPE html>
 	<html lang="ja">
-	<head>
+	<head>');
+
+	define("HEADER2", '	
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" >
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
 	<link rel="stylesheet" type="text/css" href="book.css" >
+	<link rel="stylesheet" type="text/css" href="dictEdge.css" >
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp-noto.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanmp-noto.min.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,11 +39,15 @@
 	uasort($arrSort , "HKSCmp");
 
 	ob_start();	
-	echo HEADER;
+	$marginEdgeNum =0;
+
+	echo HEADER1;
+	echo marginEdgeMultiplier($marginEdgeNum);
+	echo HEADER2;
 
 	///////////////////////////////テスト用////////////////////
 	$isTest = false;
-	$testWordCount = 1000;
+	$testWordCount = 2000;
 	$testI = 0; 
 	///////////////////////////////テスト用ここまで////////////////////
 	$separators = array(":","+");
@@ -60,7 +67,10 @@
 				file_put_contents( $previousFirstLetter.'.html', $out );
 				
 				ob_start();
-				echo HEADER;
+				$marginEdgeNum++;
+				echo HEADER1;
+				echo marginEdgeMultiplier($marginEdgeNum);
+				echo HEADER2;
 				echo '<h1 class="edge" id="', $firstLetter, '">', mb_strtoupper($firstLetter), '</h1>';
 			}
 		}else{

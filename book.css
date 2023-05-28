@@ -131,8 +131,8 @@ html{
 
 h1{
 	font-family: var(--font-idz);
-	font-size:15pt;
-	string-set: wordForm content();
+	font-size:22q;
+	string-set: wordForm content(), firstLetter content();
 	line-height:1em;
 	text-align:center;
 	background:#eee;

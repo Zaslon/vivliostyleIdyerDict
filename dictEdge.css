@@ -1,0 +1,49 @@
+/* 
+Description: 辞書の小口作成用
+Author: Zaslon
+Author URI: https://zaslon.info
+ */
+
+:root{
+    --height-edge-all: 105mm;
+    --height-edge-single: 5mm;
+
+    --margin-edge-interval :5mm;
+    /* --margin-edge-multiplier:この部分だけ各html内で記述することで、小口の高さ調整に用いる; */
+}
+
+@page :right{
+    @right-top{
+        content: string(firstLetter);
+        font-size: 22q;
+        height: 7mm;
+        align-content: start;
+        font-family: var(--font-idz);
+        font-weight: bold;
+        vertical-align:middle;
+        text-align: left;
+        margin-block-start: 0;
+        border-bottom: black var(--height-edge-single) solid;
+        color: black;
+        margin-left: 4mm;
+        margin-top: calc(var(--margin-edge-multiplier) * var(--margin-edge-interval));
+    }
+}
+
+@page :left{
+    @left-top{
+        content: string(firstLetter);
+        font-size: 22q;
+        height: 7mm;
+        align-content: start;
+        font-family: var(--font-idz);
+        font-weight: bold;
+        vertical-align:middle;
+        text-align: right;
+        margin-block-start: 0;
+        border-bottom: black var(--height-edge-single) solid;
+        color: black;
+        margin-right: 4mm;
+        margin-top: calc(var(--margin-edge-multiplier) * var(--margin-edge-interval));
+    }
+}

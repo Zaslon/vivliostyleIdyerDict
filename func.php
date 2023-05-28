@@ -148,3 +148,10 @@ function akrantiain($word){
 	exec ("node convert-pronunciation.js \"$word\"", $output);
 	return $output[0];
 }
+
+//辞書の小口用の乗数をhtmlに直接書き込みする関数
+
+function marginEdgeMultiplier($int){
+	$output = '<style type="text/css">:root{--margin-edge-multiplier:'. $int. ';}</style>';
+	return $output;
+}
