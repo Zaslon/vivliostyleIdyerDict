@@ -132,6 +132,7 @@ html{
 h1{
 	font-family: var(--font-idz);
 	font-size:15pt;
+	string-set: wordForm content();
 	line-height:1em;
 	text-align:center;
 	background:#eee;
@@ -158,6 +159,7 @@ body{
 	text-align: justify;
 	column-count: 2;
 	column-gap: 1.5rem;
+	column-fill: auto;
 	orphans:1;
 	widows:1;
 	word-wrap:break-word;
@@ -177,7 +179,7 @@ ul.wordEntry {
 
 li.wordForm {
 	font-family: var(--font-idz);
-	string-set:wordForm content();
+	string-set: wordForm content();
 	font-size: 12q;
 	font-weight: bold;
 	margin-right: 0.5rem;
