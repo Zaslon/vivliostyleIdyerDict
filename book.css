@@ -17,8 +17,8 @@ Author URI: https://zaslon.info
 
 	--margin-ud: 15mm;
 	--margin-body-end: 1rem;
-	--margin-inside: 21mm;
-	--margin-outside: 15mm;
+	--margin-inside: 20.75mm;
+	--margin-outside: 14.75mm;
 }
 
 *{
@@ -28,7 +28,7 @@ Author URI: https://zaslon.info
 }
 
 html{
-	line-height: 1.4rem;
+	line-height: 1.5rem;
 	font-family: var(--font-serif);
 	font-size : 10q;
 	text-spacing: auto;
@@ -131,16 +131,15 @@ html{
 
 h1{
 	font-family: var(--font-idz);
-	font-size:22q;
+	font-size:25q;
 	string-set: wordForm content(), firstLetter content();
-	line-height:1em;
+	height: 2rlh;
 	text-align:center;
 	background:#eee;
 	border-top:0.3pt black solid;
 	border-bottom:0.3pt black solid;
-	margin:0.5rem 0;
-	padding-top:0.4em;
-	padding-bottom:0.2em;
+	padding-top:0.5rlh;
+	padding-bottom:0.5rlh;
 }
 
 
