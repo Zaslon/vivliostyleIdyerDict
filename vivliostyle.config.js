@@ -18,9 +18,9 @@ const vivliostyleConfig = {
     // 'glossary.html' // html is also acceptable
     "e.html","a.html","o.html","i.html","u.html","h.html","k.html","s.html","t.html","c.html","n.html","r.html","m.html","p.html","f.html","g.html","z.html","d.html","b.html","v.html","1.html"
   ], // 'entry' can be 'string' or 'object' if there's only single markdown file
-  // entryContext: './manuscripts', // default to '.' (relative to 'vivliostyle.config.js')
+  entryContext: './manuscripts', // default to '.' (relative to 'vivliostyle.config.js')
   // output: [ // path to generate draft file(s). default to '{title}.pdf'
-  //   './output.pdf', // the output format will be inferred from the name.
+  // './output.pdf', // the output format will be inferred from the name.
   //   {
   //     path: './book',
   //     format: 'webpub',
