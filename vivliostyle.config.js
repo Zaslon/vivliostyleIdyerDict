@@ -19,13 +19,13 @@ const vivliostyleConfig = {
     "e.html","a.html","o.html","i.html","u.html","h.html","k.html","s.html","t.html","c.html","n.html","r.html","m.html","p.html","f.html","g.html","z.html","d.html","b.html","v.html","1.html"
   ], // 'entry' can be 'string' or 'object' if there's only single markdown file
   entryContext: './manuscripts', // default to '.' (relative to 'vivliostyle.config.js')
-  // output: [ // path to generate draft file(s). default to '{title}.pdf'
-  // './output.pdf', // the output format will be inferred from the name.
-  //   {
-  //     path: './book',
-  //     format: 'webpub',
-  //   },
-  // ],
+  output: [ // path to generate draft file(s). default to '{title}.pdf'
+  './緯日辞典.pdf', // the output format will be inferred from the name.
+    // {
+    //   path: './book',
+    //   format: 'webpub',
+    // },
+  ],
   timeout: 1200000,
   // workspaceDir: '.vivliostyle', // directory which is saved intermediate files.
   // toc: true, // whether generate and include ToC HTML or not, default to 'false'.
